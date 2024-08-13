@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://toBeDefined",
+    "title": "Contract",
+    "description": "A Contrat model to follow",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "The unique identifier matching Version 4 UUID",
+            "type": "string",
+            "pattern": "/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "status": {
+            "description": "The status matching enumerations",
+            "type": "string",
+            "enum": [
+                "todo",
+                "in progress",
+                "done"
+            ]
+        },
+        "comment": {
+            "description": "The comment not overfill max number of char",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "date_de_creation": {
+            "type": "string",
+            "format": "date"
+        }
+    },
+    "required": [
+        "id",
+        "status",
+        "date_de_creation"
+    ],
+    "additionalProperties": false
+}
